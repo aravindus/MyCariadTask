@@ -17,7 +17,6 @@ import javax.inject.Inject
 class GetParkingSpotUseCase @Inject constructor(private val repository: ParkingSpotDomainRepository) {
     operator fun invoke(): Flow<Resource<List<ParkingSpotModel>>> = flow {
         while (currentCoroutineContext().isActive) {
-            Log.e("TESTING", "invoke: repository.getParkingSpots()")
             try {
                 emit(Resource.Loading())
                 val parkingSpot =

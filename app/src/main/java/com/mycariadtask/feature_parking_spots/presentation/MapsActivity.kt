@@ -120,14 +120,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
 
                 if (parkingSpotResponse[i].AddressInfo.AddressLine1.isNotEmpty() &&
-                    parkingSpotResponse[i].AddressInfo.AddressLine2.isNotEmpty()
+                    !parkingSpotResponse[i].AddressInfo.AddressLine2.isNullOrBlank()
                 ) {
                     textChargingAddress.text =
                         parkingSpotResponse[i].AddressInfo.AddressLine1 + ", " + parkingSpotResponse[i].AddressInfo.AddressLine2
                 } else textChargingAddress.text =
-                    parkingSpotResponse[i].AddressInfo.AddressLine1 + ", " + parkingSpotResponse[i].AddressInfo.AddressLine2
-
-
+                    parkingSpotResponse[i].AddressInfo.AddressLine1
                 if (parkingSpotResponse[i].NumberOfPoints.toString().isNotEmpty()) {
                     textPorts.text = parkingSpotResponse[i].NumberOfPoints.toString()
                 }
